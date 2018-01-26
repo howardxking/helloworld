@@ -1,0 +1,18 @@
+package com.kingdom
+
+import com.kingdom.bo.LendingData
+
+rule "for unsecured loan"
+when
+lendingData : LendingData(productCode="01")
+then
+lendingData.setCommissionRate(0.2);
+end
+
+rule "for mortgage loan"
+when
+lendingData : LendingData(prodcutCode="02")
+then
+lendingData.setCommissionRate(0.15);
+end
+
